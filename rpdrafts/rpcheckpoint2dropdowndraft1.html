@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="mystyles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="nav-wrapper">
+			<div class="left-side">
+				<div class="nav-link-wrapper">
+					<a href="draft1.html">Home</a>
+				</div>
+				<div class="nav-link-wrapper">
+					<a href="contactpage.html">Contact</a>
+				</div>
+				<div class="nav-link-wrapper active-nav-link">
+					<a href="reviewpage.html">Reviews</a>
+				</div>
+			</div>
+			<div class="right-side">
+				<div class="brand">
+				<div>Joshua Edwards Tutoring</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="content-wrapper">
+            <div class="portfolio-items-wrapper">
+                <div class="contact-title">
+                    <h1>Reviews</h1>
+                </div>
+                <h1 class="rating-heading">5 Star Rating</h1>
+                <div class="star-rating">
+                    <p>How was your experience?</p>
+                    <div class="star-box">
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                    </div>
+                    <p class="current-rating">0 of 5</p>
+                </div>
+                <h1 class="rating-heading">Year group</h1>
+                <div class="yg-dropdown">
+                    <!-- <p>Please select year group</p> -->
+                    <button>Button</button>
+                    <div>
+                        <p>this option option option option option option</p>
+                        <p>this option</p>
+                        <p>this option</p>
+                    </div>
+                    <!-- <p class="current-rating">0 of 5</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <footer>
+                <h6>Website created by Joshua Edwards</h6>
+                <p class="copyrightClaim" >Copyright 2022</p>
+            </footer>
+        </div>
+	</div>
+</body>
+
+<script>
+    const allStars=document.querySelectorAll('.star');
+    let current_rating=document.querySelector('.current-rating');
+    // console.log(allStars);
+    allStars.forEach((star,i)=>{
+        star.onclick=function(){
+            // console.log(star);
+            // console.log(i+1);
+            let indexed_star_level=i+1;
+            let current_star_level=5-i;
+            current_rating.innerText=`${current_star_level} of 5`
+            // console.log(current_star_level)
+            allStars.forEach((star,j)=>{
+                // console.log(j+1);
+                if(indexed_star_level<=j+1)
+                {
+                    star.innerHTML='&#9733';
+                }else{
+                    star.innerHTML='&#9734'
+                }
+            })
+        }
+    }
+    )
+</script>
+
+
+</html>
+

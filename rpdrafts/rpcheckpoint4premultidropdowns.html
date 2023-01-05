@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="mystyles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="nav-wrapper">
+			<div class="left-side">
+				<div class="nav-link-wrapper">
+					<a href="draft1.html">Home</a>
+				</div>
+				<div class="nav-link-wrapper">
+					<a href="contactpage.html">Contact</a>
+				</div>
+				<div class="nav-link-wrapper active-nav-link">
+					<a href="reviewpage.html">Reviews</a>
+				</div>
+			</div>
+			<div class="right-side">
+				<div class="brand">
+				<div>Joshua Edwards Tutoring</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="content-wrapper">
+            <div class="portfolio-items-wrapper">
+                <div class="contact-title">
+                    <h1>Reviews</h1>
+                </div>
+                <h1 class="rating-heading">Rating</h1>
+                <div class="star-rating">
+                    <p>How was your experience?</p>
+                    <div class="star-box">
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                        <button class="star">&#9734;</button>
+                    </div>
+                    <p class="current-rating">0 of 5</p>
+                </div>
+
+                <h1 class="rating-heading">Year group</h1>
+                <div class="select-box">
+                    <div class="options-container">
+                        <div class="option">
+                            <input type="radio" class="radio" id="ks3" name="category">
+                            <label for="ks3">KS3</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="year10" name="category">
+                            <label for="year10">Year 10</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="year11" name="category">
+                            <label for="year11">Year 11</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="asyear" name="category">
+                            <label for="asyear">AS</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="a2year" name="category">
+                            <label for="a2year">A2</label>
+                        </div>
+                    </div>
+                    <div class="selected">
+                        Please select year group
+                    </div>   
+                </div>
+
+                
+                <h1 class="rating-heading">Predicted grade</h1>
+                <div class="select-box">
+                    <div class="options-container">
+                        <div class="option">
+                            <input type="radio" class="radio" id="ks3" name="category">
+                            <label for="ks3">KS3</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="year10" name="category">
+                            <label for="year10">Year 10</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="year11" name="category">
+                            <label for="year11">Year 11</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="asyear" name="category">
+                            <label for="asyear">AS</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" class="radio" id="a2year" name="category">
+                            <label for="a2year">A2</label>
+                        </div>
+                    </div>
+                    <div class="selected">
+                        Please select the grade that was predicted
+                    </div>   
+                </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <footer>
+                <h6>Website created by Joshua Edwards</h6>
+                <p class="copyrightClaim" >Copyright 2022</p>
+            </footer>
+        </div>
+	</div>
+</body>
+
+<script>
+    const allStars=document.querySelectorAll('.star');
+    let current_rating=document.querySelector('.current-rating');
+    // console.log(allStars);
+    allStars.forEach((star,i)=>{
+        star.onclick=function(){
+            // console.log(star);
+            // console.log(i+1);
+            let indexed_star_level=i+1;
+            let current_star_level=5-i;
+            current_rating.innerText=`${current_star_level} of 5`
+            // console.log(current_star_level)
+            allStars.forEach((star,j)=>{
+                // console.log(j+1);
+                if(indexed_star_level<=j+1)
+                {
+                    star.innerHTML='&#9733';
+                }else{
+                    star.innerHTML='&#9734'
+                }
+            })
+        }
+    }
+    )
+</script>
+<script>
+    const selected=document.querySelector(".selected");
+    const optionsContainer=document.querySelector(".options-container")
+    // dont need all since only 1 selected tag etc
+    const optionsList=document.querySelectorAll(".option")
+    // multiple options tags
+    selected.addEventListener("click",()=>{
+        optionsContainer.classList.toggle("active");
+        // 'toggle' either adds or takes away the active class
+    });
+
+    optionsList.forEach(o=>{
+        // o references any single element
+        o.addEventListener("click",()=>{
+            selected.innerHTML=o.querySelector("label").innerHTML;
+            optionsContainer.classList.remove("active");
+            // once clicked, will give selected the value of the label
+        });
+    })
+</script>
+
+
+</html>
+
